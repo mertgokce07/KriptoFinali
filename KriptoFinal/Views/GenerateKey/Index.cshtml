@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "RSA Anahtar Üret";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>RSA Anahtar Üret</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #e0f7fa;
+            min-height: 100vh;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            color: #00eaff;
+            text-shadow: 0 0 20px #00eaff;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .key-container {
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 234, 255, 0.1);
+        }
+
+        .key-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #90e0ef;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 160px;
+            background-color: #001d33;
+            border: 2px solid #00eaff;
+            color: #00eaff;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 1rem;
+            border-radius: 10px;
+            resize: none;
+        }
+
+        .copy-btn {
+            background-color: #00eaff;
+            border: none;
+            color: #001c2b;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+            .copy-btn:hover {
+                background-color: #0088cc;
+                color: #ffffff;
+            }
+
+        .copy-msg {
+            margin-top: 10px;
+            display: block;
+            color: #00ffcc;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 30px auto 0;
+            background-color: transparent;
+            color: #00eaff;
+            border: 2px solid #00eaff;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .back-btn:hover {
+                background-color: #00eaff;
+                color: #001c2b;
+            }
+    </style>
+
+    <script>
+        function copyToClipboard(id, msgId) {
+            var copyText = document.getElementById(id);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // mobil uyumluluk
+            navigator.clipboard.writeText(copyText.value).then(function () {
+                var msg = document.getElementById(msgId);
+                msg.style.display = 'block';
+                setTimeout(() => { msg.style.display = 'none'; }, 1500);
+            }, function () {
+                alert('Kopyalama başarısız oldu!');
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <h1>🔑 RSA Anahtar Üret</h1>
+
+    <div class="key-container">
+        <div class="key-title">
+            <span>🔓 Public Key</span>
+            <button class="copy-btn" onclick="copyToClipboard('publicKeyArea', 'copyMsg1')">Kopyala</button>
+        </div>
+        <textarea readonly id="publicKeyArea">@ViewBag.PublicKey</textarea>
+        <span class="copy-msg" id="copyMsg1" style="display:none;">Kopyalandı!</span>
+    </div>
+
+    <div class="key-container">
+        <div class="key-title">
+            <span>🔐 Private Key</span>
+            <button class="copy-btn" onclick="copyToClipboard('privateKeyArea', 'copyMsg2')">Kopyala</button>
+        </div>
+        <textarea readonly id="privateKeyArea">@ViewBag.PrivateKey</textarea>
+        <span class="copy-msg" id="copyMsg2" style="display:none;">Kopyalandı!</span>
+    </div>
+
+    <a class="back-btn" href="/">⬅️ Ana Sayfa</a>
+
+</body>
+</html>

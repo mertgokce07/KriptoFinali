@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "RSA & SHA256 ";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>CryptoMert - RSA & SHA256</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #e0f7fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
+            color: #00eaff;
+            text-shadow: 0 0 25px #00eaff;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .crypto-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 0 50px rgba(0, 234, 255, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+            .crypto-container a {
+                flex: 1 1 220px;
+                min-width: 220px;
+                text-decoration: none;
+                color: #00eaff;
+                font-weight: 600;
+                border: 3px solid #00eaff;
+                padding: 20px 30px;
+                border-radius: 14px;
+                text-align: center;
+                transition: all 0.3s ease;
+                font-size: 1.4rem;
+            }
+
+                .crypto-container a:hover {
+                    background-color: #00eaff;
+                    color: #001c2b;
+                    box-shadow: 0 0 20px #00eaff;
+                }
+
+        .footer {
+            margin-top: 80px;
+            font-size: 1.1rem;
+            color: #90e0ef;
+            text-shadow: 0 0 6px #00eaff;
+            font-weight: 500;
+        }
+
+        @@media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .crypto-container {
+                padding: 30px 20px;
+            }
+
+                .crypto-container a {
+                    font-size: 1.1rem;
+                    padding: 16px 20px;
+                    min-width: 100%;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <h1> CryptoMert | Şifreleme - Şifre Çözme </h1>
+
+    <div class="crypto-container">
+        <a href="/GenerateKey/Index">🧬 RSA İle Anahtar Üret</a>
+        <a href="/Encrypt/Index">🛡️ RSA ile Şifreleme Yap</a>
+        <a href="/Decrypt/Index">🔓 RSA ile Şifre Çöz</a>
+        <a href="/SHA256/Index">🧾 SHA 256 İle Hash Oluştur</a>
+    </div>
+
+    <div class="footer">
+        Mert Gökce © 2025
+    </div>
+
+</body>
+</html>
