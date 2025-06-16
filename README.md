@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/775afc42-e27b-474c-a5e5-f27c441d9fde)## Ana Sayfa
 
-![image](https://github.com/user-attachments/assets/b905cb8d-3767-46c6-a424-f6dd191f9773)
+
 Yukarıdaki görselde, "Güvenli Şifreleme Sistemleri" başlığı altında; RSA anahtar üretme, RSA ile şifreleme, RSA ile şifre çözme ve SHA-256 hash oluşturma işlemlerine yönlendiren butonlar ve geliştiren kişi bilgisi yer almaktadır.
 ## RSA Anahtar Üretme Sayfası
 
